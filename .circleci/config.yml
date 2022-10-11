@@ -1,15 +1,42 @@
 version: 2.1
 jobs:
   compile:
-   docker:
-      - image: panchajanya1999/archlinux:latest
+   machine:
+      image: ubuntu-2204:2022.07.1
    resource_class: large
    steps:
       - run:
           command: |
            git config --global user.name "venom-stark"
            git config --global user.email "sachidanandabehera562@gmail.com"
+           apt-get update -y
+           apt install -y bc \
+            binutils-dev \
+            bison \
+            build-essential \
+            ca-certificates \
+            ccache \
+            clang \
+            cmake \
+            curl \
+            file \
+            flex \
+            git \
+            libelf-dev \
+            libssl-dev \
+            lld \
+            make \
+            ninja-build \
+            python3-dev \
+            texinfo \
+            u-boot-tools \
+            xz-utils \
+            zlib1g-dev \
+            cpio \
+            zip \
+            openssl
            git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} .
+           
            bash .circleci/kramel.sh
 workflows:
   version: 2.1

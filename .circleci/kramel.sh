@@ -85,7 +85,7 @@ PTTG=1
 	if [ $PTTG = 1 ]
 	then
 		# Set Telegram Chat ID
-		CHATID="-1001687216976"
+		CHATID="5391662562"
 	fi
 
 # Generate a full DEFCONFIG prior building. 1 is YES | 0 is NO(default)
@@ -184,8 +184,8 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 	
 	if [ $COMPILER = "clang" ]
 	then
-		msg "|| Cloning Clang-15 ||"
-		git clone --depth=1 https://gitlab.com/Panchajanya1999/azure-clang.git clang-llvm
+		msg "|| Cloning Clang-13 ||"
+		git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang-llvm
 		# Toolchain Directory defaults to clang-llvm
 		TC_DIR=$KERNEL_DIR/clang-llvm
 	fi
